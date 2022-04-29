@@ -43,13 +43,12 @@ $(document).ready(function() {
     let $tweet = $("<article>").addClass("tweetBox");
     const date = timeago.format(tweet.created_at);
     let tweetContent = 
-    `<header>
+    `
       <div class="profile">
         <img src=${escape(tweet.user.avatars)} width="50" height="50">
         <p>${escape(tweet.user.name)}</p>
+        <p class="tag">${escape(tweet.user.handle)} </p> 
       </div>
-        <p class="tag">${escape(tweet.user.handle)}</p> 
-    </header>
       <p class="content">${escape(tweet.content.text)}</p>
     <footer>
       <p> ${escape(date)} </p>
