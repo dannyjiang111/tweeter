@@ -57,29 +57,39 @@
         <span class="fa-solid fa-angles-down" style="text-align: center"></span>
       </div>
     </nav>
-    <header>
-      <div>
+    <div class="content">
+      <header id="loginInfo" >
+        <div>
           <img src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div>
+        </div>
+        <br>
+        <div>
           <h2>Your Name</h2>
-      </div>
-    </header>
-
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form method="POST" action="/tweets" id="tweetForm">
-          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-          <div class="submission">
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text"><b>140</b></output>
+        </div>
+      </header>
+      <main class="container">
+        <section class="new-tweet">
+          <div class="alertBox" id="box">
+            <i class="fa-solid fa-circle-exclamation" id="start"></i>
+            Alert! Alert! Please condense your thoughts to our limit of 140 chars.
+            <i class="fa-solid fa-circle-exclamation"></i>
           </div>
-        </form>
-        <section class="tweetsContainer"></section>
-      </section>
-    </main>
+          <div class="alertBox" id="box2">
+            <i class="fa-solid fa-circle-exclamation" id="start"></i>
+            Alert! You haven't written anything yet bud.
+            <i class="fa-solid fa-circle-exclamation"></i>
+          </div>
+          <h2>Compose Tweet</h2>
+          <form method="POST" action="/tweets" id="tweetForm">
+            <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+            <div class="submission">
+              <button type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text"><b>140</b></output>
+            </div>
+          </form>
+          <section class="tweetsContainer"></section>
+        </section>
+      </main>
+    </div>
   </body>
 </html>

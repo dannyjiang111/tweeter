@@ -31,7 +31,13 @@ $(document).ready(function() {
       let $tweetsContainer = $(".tweetsContainer")
       $tweetsContainer.append(newTweet);
     }
-  }
+  };
+
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
   const createTweetElement = function(tweet) {
     let $tweet = $("<article>").addClass("tweetBox");
@@ -39,14 +45,14 @@ $(document).ready(function() {
     let tweetContent = 
     `<header>
       <div class="profile">
-        <img src=${tweet.user.avatars} width="50" height="50">
-        <p>${tweet.user.name}</p>
+        <img src=${escape(tweet.user.avatars)} width="50" height="50">
+        <p>${escape(tweet.user.name)}</p>
       </div>
-        <p class="tag">${tweet.user.handle}</p> 
+        <p class="tag">${escape(tweet.user.handle)}</p> 
     </header>
-    <p class="content">${tweet.content.text}</p>
+      <p class="content">${escape(tweet.content.text)}</p>
     <footer>
-      <p> ${date} </p>
+      <p> ${escape(date)} </p>
       <div class="icons">
         <i class="fa-solid fa-flag"></i>
         <i class="fa-solid fa-retweet"></i>
@@ -69,13 +75,19 @@ $(document).ready(function() {
 
   getTweet();
 
+  $(".alertBox").hide();
+  $(".alertBox2").hide();
+
   $('#tweetForm').on('submit', function(e) {
     e.preventDefault();
     const content = $("#tweetForm").serialize();
     const tweet = $("#tweet-text").val();
 
-    if (tweet.length >= 140 || tweet === null || tweet === "") {
-      return alert ("Your tweet is too long or no input has been detected");
+    if (tweet.length >= 140) {
+      return $("#box").slideDown();
+    }
+    if (tweet === null || tweet === "") {
+      return $("#box2").slideDown();
     }
     $.ajax ({
       type: "POST",
