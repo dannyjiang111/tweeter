@@ -7,8 +7,10 @@ header {
   width:100%;
   background-color: orange;
   background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
+  z-index: 1;
 };
 
-header img {
-  padding-top: 130px;
-} 
+header#loginInfo div {
+  display: flex;
+  flex-direction: column;
+}
