@@ -43,6 +43,9 @@
 
     <!-- Char Counter JS -->
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
+    <!-- Timeago -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </head>
 
   <body>
@@ -68,50 +71,14 @@
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form method="POST" action="/tweets" >
+        <form method="POST" action="/tweets" id="tweetForm">
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div class="submission">
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text"><b>140</b></output>
           </div>
         </form>
-        <article class="tweetBox">
-          <header>
-            <div class="profile">
-              <i class="fa-solid fa-user-doctor"></i>
-              <p>Newton</p>
-            </div>
-            <p class="tag">@Sirlsaac</p> 
-          </header>
-          <p class="content">If I have seen further it is by standing on the shoulders of giants</p>
-          <footer>
-            <p> 10 days ago </p>
-            <div class="icons">
-              <i class="fa-solid fa-flag"></i>
-              <i class="fa-solid fa-retweet"></i>
-              <i class="fa-solid fa-heart"></i>
-            </div>
-          </footer>
-        </article>
-
-        <article class="tweetBox">
-          <header>
-            <div class="profile">
-              <i class="fa-solid fa-user-doctor"></i>
-              <p>Descartes</p>
-            </div>
-            <p class="tag">@rd</p> 
-          </header>
-          <p class="content">Je pense , donc je suis</p>
-          <footer>
-            <p> 10 days ago </p>
-            <div class="icons">
-              <i class="fa-solid fa-flag"></i>
-              <i class="fa-solid fa-retweet"></i>
-              <i class="fa-solid fa-heart"></i>
-            </div>
-          </footer>
-        </article>
+        <section class="tweetsContainer"></section>
       </section>
     </main>
   </body>
