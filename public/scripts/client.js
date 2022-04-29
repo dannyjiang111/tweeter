@@ -26,7 +26,7 @@ const data = [
 $(document).ready(function() {
 
   const renderTweets = function(tweets) {
-    for (let obj of tweets) {
+    for (const obj of tweets) {
       let newTweet = createTweetElement(obj);
       let $tweetsContainer = $(".tweetsContainer")
       $tweetsContainer.append(newTweet);
